@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, 2018, Flatpak Team. Licensed under Creative Commons
+# Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+msgstr ""
+"Project-Id-Version:  Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-20 17:03-0500\n"
+"PO-Revision-Date: 2022-06-20 05:13-0400\n"
+"Last-Translator: vikdevelop"
+"\n"
+"Language: cs\n"
+"Language-Team: Czech\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../first-build.rst:2
+msgid "Building your first Flatpak"
+msgstr "Sestavení vašeho prvního Flatpaku"
+
+#: ../../first-build.rst:4
+msgid ""
+"This tutorial provides a quick introduction to building Flatpaks. In it, "
+"you will learn how to create a basic Flatpak application, which can be "
+"installed and run."
+msgstr ""
+"Tento tutoriál poskytuje rychlý úvod do vytváření Flatpaků. Dozvíte se v něm, "
+"jak vytvořit základní aplikaci Flatpak, kterou lze "
+"nainstalovat a spustit."
+
+#: ../../first-build.rst:8
+#, fuzzy
+msgid ""
+"In order to complete this tutorial, you should have followed the `setup "
+"guide on flatpak.org <http://flatpak.org/setup/>`_. You also need to have"
+" installed ``flatpak-builder``, which is usually available from the same "
+"repository as the ``flatpak`` package (e.g. use ``apt`` or ``dnf``). You "
+"can also install it as a flatpak with ``flatpak install flathub "
+"org.flatpak.Builder``."
+msgstr ""
+"Abyste mohli dokončit tento tutoriál, měli byste postupovat podle `návodu "
+"k nastavení na flatpak.org <http://flatpak.org/setup/>`_. Také musíte mít"
+" nainstalovaný ``flatpak-builder``, který je obvykle dostupný ze stejného "
+"repozitáře jako balíček ``flatpak`` (např. pomocí ``apt`` nebo ``dnf``). Můžete "
+"jej také nainstalovat jako flatpak příkazem ``flatpak install flathub "
+"org.flatpak.Builder``."
+
+#: ../../first-build.rst:15
+msgid "1. Install a runtime and the matching SDK"
+msgstr "1. Nainstalujte běhové prostředí a odpovídající SDK"
+
+#: ../../first-build.rst:17
+msgid ""
+"Flatpak requires every app to specify a runtime that it uses for its "
+"basic dependencies. Each runtime has a matching SDK (Software Development"
+" Kit), which contains all the things that are in the runtime, plus "
+"headers and development tools. This SDK is required to build apps for the"
+" runtime."
+msgstr ""
+"Flatpak vyžaduje, aby každá aplikace zadala běhové prostředí, který používá "
+"pro své základní závislosti. Každé běhové prostředí má odpovídající SDK (Software Development"
+" Kit), který obsahuje všechny věci, které jsou v runtime, ale navíc "
+"hlavičky a vývojové nástroje. Tato sada SDK je nutná k sestavení aplikací pro dané"
+" běhové prostředí."
+#: ../../first-build.rst:22
+#, fuzzy
+msgid ""
+"In this tutorial we will use the Freedesktop 21.08 runtime and SDK. To "
+"install these, run::"
+msgstr ""
+"V tomto tutoriálu budeme používat běhové prostředí Freedesktop 21.08 a SDK. Pro "
+"instalaci výše uvedeného, spusťte::"
+
+#: ../../first-build.rst:28
+msgid "2. Create the app"
+msgstr "2. Vytvořte aplikaci"
+
+#: ../../first-build.rst:30
+msgid ""
+"The app that is going to be created for this tutorial is a simple script."
+" To create it, copy the following::"
+msgstr ""
+"Aplikace která bude vytvořena pro tento tutoriál je jednoduchý skript."
+" Pro vytvoření skriptu, zkopírujte následující::"
+
+#: ../../first-build.rst:36
+msgid "Now paste this into an empty file and save it as ``hello.sh``."
+msgstr "Nyní vložte toto do prázdného souboru a uložte jej jako ``hello.sh``."
+
+#: ../../first-build.rst:39
+msgid "3. Add a manifest"
+msgstr "3. Přidejte manifest"
+
+#: ../../first-build.rst:41
+msgid ""
+"Each Flatpak is built using a manifest file which provides basic "
+"information about the application and instructions for how it is to be "
+"built. To add a manifest to the hello world app, add the following to an "
+"empty file:"
+msgstr ""
+"Každý Flatpak je sestaven pomocí souboru manifestu, který obsahuje základní "
+"informace o aplikaci a pokyny, jak má být sestavena. Chcete-li přidat manifest "
+"do aplikace hello world, přidejte do prázdného souboru "
+"následující text:"
+#: ../../first-build.rst:61
+msgid ""
+"Now save the file alongside ``hello.sh`` and call it "
+"``org.flatpak.Hello.yml``."
+msgstr ""
+"Nyní uložte soubor vedle ``hello.sh`` a pojmenujte jej "
+"``org.flatpak.Hello.yml``."
+#: ../../first-build.rst:64
+msgid ""
+"In a more complex application, the manifest would list multiple modules. "
+"The last one would typically be the application itself, and the earlier "
+"ones would be dependencies that are bundled with the app because they are"
+" not part of the runtime."
+msgstr ""
+"Ve složitější aplikaci by manifest obsahoval seznam více modulů. "
+"Poslední z nich by obvykle byla samotná aplikace a ty předchozí "
+"by byly závislosti, které jsou s aplikací přibaleny, protože nejsou"
+" součástí běhového prostředí."
+#: ../../first-build.rst:70
+msgid "4. Build the application"
+msgstr "4. Sestavte aplikaci"
+
+#: ../../first-build.rst:72
+msgid ""
+"Now that the app has a manifest, ``flatpak-builder`` can be used to build"
+" it. This is done by specifying the manifest file and a target "
+"directory::"
+msgstr ""
+"Nyní, když má aplikace manifest, lze k jejímu sestavení použít nástroj"
+" ``flatpak-builder``. To se provádí zadáním souboru manifestu a cílového "
+"adresáře::"
+#: ../../first-build.rst:77
+msgid ""
+"This command will build each module that is listed in the manifest and "
+"install it to the ``/app`` subdirectory, inside the ``build-dir`` "
+"directory."
+msgstr ""
+
+#: ../../first-build.rst:81
+msgid "5. Test the build"
+msgstr "6. Otestujte sestavení"
+
+#: ../../first-build.rst:83
+msgid "To verify that the build was successful, run the following::"
+msgstr "K ověření, že sestavení proběhlo úspěšně, zadejte následující::"
+
+#: ../../first-build.rst:88
+msgid "Congratulations, you've made an app!"
+msgstr "Gratulujeme, vytvořili jste aplikaci!"
+
+#: ../../first-build.rst:91
+msgid "6. Put the app in a repository"
+msgstr "6. Přidejte aplikaci do repozitáře"
+
+#: ../../first-build.rst:93
+msgid ""
+"If you want to share the application you can put it in a repository. This"
+" is done by passing the ``--repo`` argument to ``flatpak-builder``::"
+msgstr ""
+"Pokud chcete aplikaci sdílet, můžete ji přidat do repozitáře. To"
+" se provádí předáním argumentu ``--repo`` příkazu ``flatpak-builder``::"
+#: ../../first-build.rst:99
+msgid ""
+"This does the build again, and at the end exports the result to a local "
+"directory called ``repo``. Note that ``flatpak-builder`` keeps a cache of"
+" previous builds in the ``.flatpak-builder`` subdirectory, so doing a "
+"second build like this is very fast."
+msgstr ""
+"Znovu provede sestavení a na konci vyexportuje výsledek do místního "
+"adresáře s názvem ``repo``. Všimněte si, že ``flatpak-builder`` uchovává mezipaměť"
+" předchozích sestavení v podadresáři ``.flatpak-builder``, takže "
+"provedení druhého sestavení tímto způsobem je velmi rychlé."
+#: ../../first-build.rst:104
+msgid ""
+"This second time we passed in ``--force-clean``, which means that the "
+"previously created ``build-dir`` directory was deleted before the new "
+"build was started."
+msgstr ""
+"Podruhé jsme přidali argument ``--force-clean``, což znamená, "
+"že dříve vytvořený adresář ``build-dir`` byl před spuštěním "
+"nového sestavení smazán."
+#: ../../first-build.rst:108
+msgid ""
+"In order for your application to show up in application stores while "
+"testing with a local repository, you might have to run ``flatpak build-"
+"update-repo repo``. For more information how to publish to application "
+"stores see `Appdata files <http://docs.flatpak.org/en/latest/freedesktop-"
+"quick-reference.html#appdata-files>`_."
+msgstr ""
+"Aby se vaše aplikace při testování s místním repositářem zobrazila v aplikačních úložištích, "
+"budete možná muset spustit ``flatpak build-update-repo repo``. Další informace o tom, "
+"jak publikovat v aplikačních úložištích, naleznete v části "
+"`Appdata files <http://docs.flatpak.org/en/latest/freedesktop-quick-reference.html#appdata-"
+"files>`_."
+#: ../../first-build.rst:113
+msgid "7. Install the app"
+msgstr "7. Nainstalujte aplikaci"
+
+#: ../../first-build.rst:115
+msgid ""
+"Now we're ready to add the repository that was just created and install "
+"the app. This is done with two commands::"
+msgstr ""
+"Nyní pokud jste připraveni přidat repozitář který byl právě vytvořen, taj nainstalujte aplikaci. K tomu slouží dva příkazy::"
+#: ../../first-build.rst:121
+msgid ""
+"The first command adds the repository that was created in the previous "
+"step. The second command installs the app from the repository."
+msgstr ""
+"První příkaz přidá repozitář vytvořené v předchozím kroku. "
+"Druhý příkaz nainstaluje aplikaci z repozitáře."
+#: ../../first-build.rst:124
+msgid ""
+"Both these commands use the ``--user`` argument, which means that the "
+"repository and the app are added per-user rather than system-wide. This "
+"is useful for testing."
+msgstr ""
+"Oba tyto příkazy používají argument ``--user``, což znamená, že repozitář a "
+"aplikace jsou přidány pro jednotlivé uživatele, nikoli pro celý systém. To je "
+"užitečné pro testování."
+#: ../../first-build.rst:128
+msgid ""
+"Note that the repository was added with ``--no-gpg-verify``, since a GPG "
+"key wasn't specified when the app was built. This is fine for testing, "
+"but for official repositories you should sign them with a private GPG "
+"key."
+msgstr ""
+"Všimněte si, že repozitář bylo přidáno s příkazem ``--no-gpg-verify``, protože "
+"při sestavování aplikace nebyl zadán klíč GPG. To je v pořádku pro testování, "
+"ale pro oficiální repozitáře byste je měli podepsat soukromým klíčem GPG."
+#: ../../first-build.rst:133
+msgid "8. Run the app"
+msgstr "8. Spusťte aplikaci"
+
+#: ../../first-build.rst:135
+msgid ""
+"All that's left is to try the app. This can be done with the following "
+"command::"
+msgstr ""
+"Zbývá už jen vyzkoušet aplikaci. To lze provést pomocí následujícího "
+"příkazu::"
+#: ../../first-build.rst:140
+msgid "This runs the app, so that it prints 'Hello world, from a sandbox'."
+msgstr "Tím se aplikace spustí tak, že vypíše 'Hello world, from a sandbox (Ahoj světe, ze sandboxu)'."
+
+#~ msgid ""
+#~ "Now save the file alongside ``hello.sh``"
+#~ " and call it ``org.flatpak.Hello.json``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Before you can install and run the"
+#~ " app, it first needs to be put"
+#~ " in a repository. This is done "
+#~ "by passing the ``--repo`` argument to"
+#~ " ``flatpak-builder``::"
+#~ msgstr ""
